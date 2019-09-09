@@ -4,5 +4,5 @@ SUBDIRS = src deps
 
 .PHONY : deps
 deps :
-	make -C deps all
+	make -C deps deps
 
