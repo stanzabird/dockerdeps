@@ -18,4 +18,10 @@ src/.deps/
 src/Makefile
 src/Makefile.in
 stamp-h1
+src/dockerdeps
+src/dockerdeps-dockerdeps.o
+test-driver
+tests/test-suite.log
+tests/usage.sh.log
+tests/usage.sh.trs
 

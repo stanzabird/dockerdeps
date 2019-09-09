@@ -12,3 +12,4 @@ workdir dockerdeps
 run autoreconf -i
 run ./configure
 run make
+run make check

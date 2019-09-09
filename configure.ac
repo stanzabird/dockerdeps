@@ -13,5 +13,5 @@ AX_BOOST_SYSTEM
 AX_BOOST_THREAD
 AX_BOOST_ASIO
 
-AC_CONFIG_FILES(Makefile src/Makefile deps/Makefile)
+AC_CONFIG_FILES(Makefile src/Makefile deps/Makefile tests/Makefile)
 AC_OUTPUT
