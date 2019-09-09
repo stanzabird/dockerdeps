@@ -31,6 +31,14 @@ Other unsuppoted builds:
 
 Each distro docker build file comes in two flavors: 'distX' and 'distX-build'. The 'distX' Dockerfile builds the package from a tarball, and the 'distX-build' Dockerfile builds the package from a cloned git repo.
 
+So you wanna build this thing?
+------------------------------
+
+# What you need is (a vm with) docker installed.
+# You need to know how to use docker and remove images that you no longer need.
+# You need to install the depencencies needed to build the test program (they are found in the relevant Dockerfile).
+# Configure the program
+# Finally, do 'make deps'. This will build *all* the docker images (takes about 35 minutes on my laptop).
 
 TODO
 ----
@@ -38,3 +46,4 @@ I'm thinking of expanding the project with the following features:
 * 'distX-mingw64' docker build files to build for win64 using mingw64 cross-compilation.
 * 'distX*/Dockerfile.in' to generate the names of the tarballs and the version numbers from autoconf.
 * 'distX-pkg' docker build files to build distribution files for each distro. (deb, rpm)
+
