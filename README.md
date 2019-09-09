@@ -1,17 +1,12 @@
-Linux Mint:    debian
-Ubuntu:        debian
-openSUSE:      redhat, not clear what package system
-manjaro:       AUR, Archlinux
-manjaro:       debian
-elementary OS: Ubuntu
-CentOS:        redhat
-Gentoo:        Portage package management system
-Ubuntu MATE:   debian
-Tails:         debian
-
+There are build Dockerfiles for:
+* arch
 * debian
 * fedora
-* arch
-
+The following derived distro's use:
+* arch : manjaro
+* debian : linux mint, ubuntu, manjaro elementary os, ubuntu mate, tails.
+* fedora : opensuse, centos
+Other unsuppoted builds:
+* gentoo
 
 
