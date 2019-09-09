@@ -1,4 +1,5 @@
-# https://www.gnu.org/software/automake/manual/html_node/Scripts_002dbased-Testsuites.html
+# https://www.gnu.org/software/automake/manual/html_node/Tests.html
+
 
 EXTRA_DIST = usage.sh
 
