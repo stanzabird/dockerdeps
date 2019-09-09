@@ -5,20 +5,20 @@ EXTRA_DIST = debian-build/Dockerfile debian/Dockerfile arch-build/Dockerfile arc
 .PHONY : deps fedora fedora-build debian debian-build arch arch-build
 
 
-fedora :
-	sudo docker build fedora
-fedora-build :
-	sudo docker build fedora-build
+arch :
+	sudo docker build arch
+arch-build :
+	sudo docker build arch-build
 
 debian :
 	sudo docker build debian
 debian-build :
 	sudo docker build debian-build
 
-arch :
-	sudo docker build arch
-arch-build :
-	sudo docker build arch-build
+fedora :
+	sudo docker build fedora
+fedora-build :
+	sudo docker build fedora-build
 
 
-deps : fedora fedora-build debian debian-build arch arch-build
+deps : arch arch-build debian debian-build fedora fedora-build
