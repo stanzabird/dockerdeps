@@ -12,19 +12,28 @@ However, how are these dependencies called under my distro? What are the depence
 Docker to the rescue
 --------------------
 
-This program uses a slew of Docerfiles to build under various flavors of linux, and serve as the documentation on how to build the program, either from distribution tarball, or from a git repo.
+This program uses a slew of Dockerfiles to build under various flavors of linux, and serve as the documentation on how to build the program, either from distribution tarball, or from a git repo.
 
 There are build Dockerfiles for:
+--------------------------------
+
 * arch
 * debian
 * fedora
 
 The following derived distro's use:
 * arch : manjaro
-* debian : linux mint, ubuntu, manjaro, elementary os, ubuntu mate, tails.
+* debian : linux mint, ubuntu, manjaro, elementary os, ubuntu mate.
 * fedora : opensuse, centos
 
 Other unsuppoted builds:
 * gentoo
 
+Each distro docker build file comes in two flavors: 'distX' and 'distX-build'. The 'distX' Dockerfile builds the package from a tarball, and the 'distX-build' Dockerfile builds the package from a cloned git repo.
 
+
+TODO
+----
+I'm thinking of expanding the project with the following features:
+* 'distX-mingw64' docker build files to build for win64 using mingw64 cross-compilation.
+* 'distX*/Dockerfile.in' to generate the names of the tarballs and the version number from autoconf.
