@@ -34,11 +34,11 @@ Each distro docker build file comes in two flavors: 'distX' and 'distX-build'. T
 So you wanna build this thing?
 ------------------------------
 
-# What you need is (a vm with) docker installed.
-# You need to know how to use docker and remove images that you no longer need.
-# You need to install the depencencies needed to build the test program (they are found in the relevant Dockerfile).
-# Configure the program
-# Finally, do 'make deps'. This will build *all* the docker images (takes about 35 minutes on my laptop).
+1) What you need is (a vm with) docker installed.
+2) You need to know how to use docker and remove images that you no longer need.
+3) You need to install the depencencies needed to build the test program (they are found in the relevant Dockerfile).
+4) Configure the program.
+5) Finally, do 'make deps'. This will build *all* the docker images (takes about 35 minutes on my laptop).
 
 TODO
 ----
