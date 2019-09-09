@@ -28,7 +28,7 @@ The following derived distro's use:
 * debian : linux mint, ubuntu, manjaro, elementary os, ubuntu mate.
 * fedora : opensuse, centos
 
-Other unsuppoted builds:
+Currently unsupported distro's:
 * gentoo
 
 Each distro docker build file comes in two flavors: 'distX' and 'distX-build'. The 'distX' Dockerfile builds the package from a tarball, and the 'distX-build' Dockerfile builds the package from a cloned git repo.
