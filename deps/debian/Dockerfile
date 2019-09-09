@@ -1,4 +1,4 @@
-from debian:latest
+from debian
 
 # update system
 run apt-get -y update

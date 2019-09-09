@@ -6,19 +6,19 @@ EXTRA_DIST = debian-build/Dockerfile debian/Dockerfile arch-build/Dockerfile arc
 
 
 arch :
-	sudo docker build arch
+	sudo docker build -t dockerdeps/arch arch
 arch-build :
-	sudo docker build arch-build
+	sudo docker build -t dockerdeps/arch-build arch-build
 
 debian :
-	sudo docker build debian
+	sudo docker build -t dockerdeps/debian debian
 debian-build :
-	sudo docker build debian-build
+	sudo docker build -t dockerdeps/debian-build debian-build
 
 fedora :
-	sudo docker build fedora
+	sudo docker build -t dockerdeps/fedora fedora
 fedora-build :
-	sudo docker build fedora-build
+	sudo docker build -t dockerdeps/fedora-build fedora-build
 
 
 deps : arch arch-build debian debian-build fedora fedora-build

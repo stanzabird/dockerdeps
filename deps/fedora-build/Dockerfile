@@ -1,4 +1,4 @@
-from fedora:latest
+from fedora
 
 # update system
 run dnf -y update
