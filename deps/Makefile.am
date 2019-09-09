@@ -22,3 +22,6 @@ fedora-build :
 
 
 deps : arch arch-build debian debian-build fedora fedora-build
+
+rmi :
+	sudo docker rmi dockerdeps/arch-build dockerdeps/arch dockerdeps/fedora-build dockerdeps/fedora dockerdeps/debian-build dockerdeps/debian

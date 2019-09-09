@@ -14,6 +14,8 @@ Docker to the rescue
 
 This program uses a slew of Dockerfiles to build under various flavors of linux, and serve as the documentation on how to build the program, either from distribution tarball, or from a git repo.
 
+The good part of using docker is that really all dependencies have to be specified to the package manager or the build will fail. For archlinux, I found I had to specify 'grep' because the ./configure script needs it and it's not in the archlinux/base image :) So this allows you to have a README.md in your program that specifies the commandline for the relevant distro's and help your user a lot with building the program quickly.
+
 There are build Dockerfiles for:
 --------------------------------
 
@@ -39,6 +41,8 @@ So you wanna build this thing?
 3) You need to install the depencencies needed to build the test program (they are found in the relevant Dockerfile).
 4) Configure the program.
 5) Finally, do 'make deps'. This will build *all* the docker images (takes about 35 minutes on my laptop).
+
+To remove the built images, issue a 'make rmi' command in the 'deps' folder.
 
 TODO
 ----
