@@ -44,6 +44,11 @@ So you wanna build this thing?
 
 To remove the built images, issue a 'make rmi' command in the 'deps' folder.
 
+And a reminder, to run a shell in one of the containers, just issue:
+```bash
+docker run --rm -it dockerdeps/debian bash
+```
+
 TODO
 ----
 I'm thinking of expanding the project with the following features:
