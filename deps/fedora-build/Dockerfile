@@ -4,11 +4,10 @@ from fedora:latest
 run dnf -y update
 
 # get the dependencies
-run dnf -y install automake autoconf wget make g++ boost-devel
+run dnf -y install automake autoconf git make g++ boost-devel
 
 # build the package
-run wget https://pub.stanzabird.nl/dockerdeps.tar
-run tar xf dockerdeps.tar
+run git clone https://github.com/stanzabird/dockerdeps.git
 workdir dockerdeps
 run autoreconf -i
 run ./configure

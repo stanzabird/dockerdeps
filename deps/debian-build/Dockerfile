@@ -5,11 +5,10 @@ run apt-get -y update
 run apt-get -y upgrade
 
 # get the dependencies
-run apt-get -y install automake autoconf wget make g++ libboost-all-dev
+run apt-get -y install automake autoconf git make g++ libboost-all-dev
 
 # build the package
-run wget https://pub.stanzabird.nl/dockerdeps.tar
-run tar xf dockerdeps.tar
+run git clone https://github.com/stanzabird/dockerdeps.git
 workdir dockerdeps
 run autoreconf -i
 run ./configure
