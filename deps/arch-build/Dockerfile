@@ -4,11 +4,10 @@ from archlinux/base
 run pacman -Syu --noconfirm
 
 # get the dependencies
-run pacman -Syu --noconfirm grep awk automake autoconf wget make gcc boost
+run pacman -Syu --noconfirm grep awk automake autoconf git make gcc boost
 
 # build the package
-run wget https://pub.stanzabird.nl/dockerdeps.tar
-run tar xf dockerdeps.tar
+run git clone https://github.com/stanzabird/dockerdeps.git
 workdir dockerdeps
 run autoreconf -i
 run ./configure

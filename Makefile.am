@@ -1,25 +1,20 @@
 AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I m4
-SUBDIRS = src
+SUBDIRS = src deps
 
-cleantar :
-	make dist
-	scp dockerdeps-0.1.0.tar.gz nine:pub
-	(mkdir tmp ; cd tmp ; git clone ../../dockerdeps ; tar cf dockerdeps.tar dockerdeps ; scp dockerdeps.tar nine:pub ; cd .. ; rm -rf tmp)
+arch :
+	make -C deps arch
+arch-build :
+	make -C deps arch-build
+debian : 
+	make -C deps debian
+debian-build :
+	make -C deps debian-build
+fedora :
+	make -C deps fedora
+fedora-build :
+	make -C deps fedora-build
 
-fedora : cleantar
-	sudo docker build deps/fedora
-fedora-build : cleantar
-	sudo docker build deps/fedora-build
+deps-all :
+	make -C deps deps
 
-debian : cleantar
-	sudo docker build deps/debian
-debian-build : cleantar
-	sudo docker build deps/debian-build
-
-arch : cleantar
-	sudo docker build deps/arch
-arch-build : cleantar
-	sudo docker build deps/arch-build
-
-deps : fedora fedora-build debian debian-build arch arch-build
