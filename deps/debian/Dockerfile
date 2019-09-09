@@ -1,0 +1,16 @@
+from debian:latest
+
+# update system
+run apt-get -y update
+run apt-get -y upgrade
+
+# get the dependencies
+run apt-get -y install wget make g++ libboost-all-dev
+
+# build the package
+run wget https://pub.stanzabird.nl/dockerdeps-0.1.0.tar.gz
+run tar xf dockerdeps-0.1.0.tar.gz
+workdir dockerdeps-0.1.0
+run ./configure
+run make
+
