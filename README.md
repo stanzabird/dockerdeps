@@ -37,4 +37,4 @@ TODO
 I'm thinking of expanding the project with the following features:
 * 'distX-mingw64' docker build files to build for win64 using mingw64 cross-compilation.
 * 'distX*/Dockerfile.in' to generate the names of the tarballs and the version numbers from autoconf.
-* 'distX-pkgfmt' docker build files to build distribution files for each distro. (deb, rpm)
+* 'distX-pkg' docker build files to build distribution files for each distro. (deb, rpm)
