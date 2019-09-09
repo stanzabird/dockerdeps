@@ -36,4 +36,4 @@ TODO
 ----
 I'm thinking of expanding the project with the following features:
 * 'distX-mingw64' docker build files to build for win64 using mingw64 cross-compilation.
-* 'distX*/Dockerfile.in' to generate the names of the tarballs and the version number from autoconf.
+* 'distX*/Dockerfile.in' to generate the names of the tarballs and the version numbers from autoconf.
