@@ -2,7 +2,6 @@ from fedora
 
 # update system
 run dnf -y update
-run dnf -y install openssh
 
 # get the dependencies
 run dnf -y install automake autoconf git make g++ boost-devel

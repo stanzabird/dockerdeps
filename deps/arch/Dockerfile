@@ -2,7 +2,6 @@ from archlinux/base
 
 # update system
 run pacman -Syu --noconfirm
-run pacman -Syu --noconfirm openssh
 
 # get the dependencies
 run pacman -Syu --noconfirm grep awk wget make gcc boost

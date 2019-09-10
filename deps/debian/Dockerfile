@@ -3,7 +3,6 @@ from debian
 # update system
 run apt-get -y update
 run apt-get -y upgrade
-run apt-get -y install openssh-client
 
 # get the dependencies
 run apt-get -y install wget make g++ libboost-all-dev
