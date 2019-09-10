@@ -1,28 +1,28 @@
-EXTRA_DIST = debian-build/Dockerfile debian/Dockerfile arch-build/Dockerfile arch/Dockerfile \
- fedora/Dockerfile fedora-build/Dockerfile
+EXTRA_DIST = debian-git debian-tar arch-git arch-tar/Dockerfile \
+	fedora-tar fedora-git fedora-mingw64
 
 
-.PHONY : deps fedora fedora-build fedora-mingw64 debian debian-build arch arch-build
+.PHONY : deps fedora-tar fedora-git fedora-mingw64 debian-tar debian-git arch-tar arch-git
 
 
-arch :
-	sudo docker build -t dockerdeps/arch arch
-arch-build :
-	sudo docker build -t dockerdeps/arch-build arch-build
+arch-tar :
+	sudo docker build -t dockerdeps/arch-tar arch-tar
+arch-git :
+	sudo docker build -t dockerdeps/arch-git arch-git
 
-debian :
-	sudo docker build -t dockerdeps/debian debian
-debian-build :
-	sudo docker build -t dockerdeps/debian-build debian-build
+debian-tar :
+	sudo docker build -t dockerdeps/debian-tar debian-tar
+debian-git :
+	sudo docker build -t dockerdeps/debian-git debian-git
 
-fedora :
-	sudo docker build -t dockerdeps/fedora fedora
-fedora-build :
-	sudo docker build -t dockerdeps/fedora-build fedora-build
+fedora-tar :
+	sudo docker build -t dockerdeps/fedora-tar fedora-tar
+fedora-git :
+	sudo docker build -t dockerdeps/fedora-git fedora-git
 fedora-mingw64 :
 	sudo docker build -t dockerdeps/fedora-mingw64 fedora-mingw64
 
-deps : arch arch-build debian debian-build fedora fedora-build fedora-mingw64
+deps : arch-tar arch-git debian-tar debian-git fedora-tar fedora-git fedora-mingw64
 
 rmi :
-	sudo docker rmi dockerdeps/arch-build dockerdeps/arch dockerdeps/fedora-build dockerdeps/fedora dockerdeps/fedora-mingw64 dockerdeps/debian-build dockerdeps/debian
+	sudo docker rmi dockerdeps/arch-git dockerdeps/arch-tar dockerdeps/fedora-git dockerdeps/fedora-tar dockerdeps/fedora-mingw64 dockerdeps/debian-git dockerdeps/debian-tar

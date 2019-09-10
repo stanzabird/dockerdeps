@@ -11,7 +11,7 @@ run git clone https://github.com/stanzabird/dockerdeps.git
 workdir dockerdeps
 run autoreconf -i
 env LIBS=-lwsock32
-run mingw64-configure --with-boost=/usr/x86_64-w64-mingw32/sys-root/mingw --prefix=/OUTPUT
+run mingw64-configure --with-boost=/usr/x86_64-w64-mingw32/sys-root/mingw
 run make
 
 # make a zip file of the executable and all it's .dll dependencies
