@@ -5,6 +5,8 @@ This program is a simple c++ program that has a Boost dependency. The program ho
 
 Dockerdeps is about the 'deps' folder, where Dockerfiles are located to build the (test) program from tarball and github HEAD under various well-known linux distributions.
 
+The takeaway file to study is 'deps/autodep.sh', that installs the deps for your distro.
+
 The problem with autoconf and it's tarballs is that it does not do anything to help with the dependencies, these dependencies are expected to be handled by the one who compiles the source.
 
 However, how are these dependencies called under my distro? What are the depencencies anyway? All this makes compiling a tarball more problematic than it has to be.
