@@ -4,7 +4,9 @@ from fedora
 run dnf -y update
 
 # get the dependencies
-run dnf -y install automake autoconf git make mingw64-gcc-c++ mingw64-boost
+run dnf -y install automake autoconf git
+copy autodep.sh .
+run ./autodep fedora-mingw64
 
 # build the package
 run git clone https://github.com/stanzabird/dockerdeps.git

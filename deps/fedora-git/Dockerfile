@@ -4,7 +4,9 @@ from fedora
 run dnf -y update
 
 # get the dependencies
-run dnf -y install automake autoconf git make g++ boost-devel
+run dnf -y install automake autoconf git
+copy autodep.sh .
+run ./autodep.sh fedora
 
 # build the package
 run git clone https://github.com/stanzabird/dockerdeps.git

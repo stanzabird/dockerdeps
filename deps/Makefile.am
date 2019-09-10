@@ -15,16 +15,26 @@ arch-git :
 	rm arch-git/autodep.sh
 
 debian-tar :
+	cp autodep.sh debian-tar
 	sudo docker build -t @PACKAGE@/debian-tar debian-tar
+	rm debian-tar/autodep.sh
 debian-git :
+	cp autodep.sh debian-git
 	sudo docker build -t @PACKAGE@/debian-git debian-git
+	rm debian-git/autodep.sh
 
 fedora-tar :
+	cp autodep.sh fedora-tar
 	sudo docker build -t @PACKAGE@/fedora-tar fedora-tar
+	rm fedora-tar/autodep.sh
 fedora-git :
+	cp autodep.sh fedora-git
 	sudo docker build -t @PACKAGE@/fedora-git fedora-git
+	rm fedora-git/autodep.sh
 fedora-mingw64 :
+	cp autodep.sh fedora-mingw64
 	sudo docker build -t @PACKAGE@/fedora-mingw64 fedora-mingw64
+	rm fedora-mingw64/autodep.sh
 
 deps : arch-tar arch-git debian-tar debian-git fedora-tar fedora-git fedora-mingw64
 
