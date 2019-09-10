@@ -22,7 +22,7 @@ fedora-build :
 fedora-mingw64 :
 	sudo docker build -t dockerdeps/fedora-mingw64 fedora-mingw64
 
-deps : arch arch-build debian debian-build fedora fedora-build
+deps : arch arch-build debian debian-build fedora fedora-build fedora-mingw64
 
 rmi :
 	sudo docker rmi dockerdeps/arch-build dockerdeps/arch dockerdeps/fedora-build dockerdeps/fedora dockerdeps/fedora-mingw64 dockerdeps/debian-build dockerdeps/debian
