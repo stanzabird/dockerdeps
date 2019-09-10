@@ -8,11 +8,11 @@ EXTRA_DIST = debian-git debian-tar arch-git arch-tar/Dockerfile \
 arch-tar :
 	cp autodep.sh arch-tar
 	sudo docker build -t @PACKAGE@/arch-tar arch-tar
-	rm -f arch-tar/autodep.sh
+	rm arch-tar/autodep.sh
 arch-git :
 	cp autodep.sh arch-git
 	sudo docker build -t @PACKAGE@/arch-git arch-git
-	rm -f arch-tar/autodep.sh
+	rm arch-git/autodep.sh
 
 debian-tar :
 	sudo docker build -t @PACKAGE@/debian-tar debian-tar
