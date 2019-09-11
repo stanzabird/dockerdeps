@@ -64,7 +64,7 @@ static void
 version()
 {
   std::cout << "dockerdeps (" PACKAGE_NAME ") " PACKAGE_VERSION "\n";
-  std::cout << "Copyright (C) 2019 Opal Raava <opalraava@riseup.net>\n";
+  std::cout << "Copyright (C) 2019 Stanzabird.nl <bert@stanzabird.nl>\n";
   std::cout << "Licence GPLv2+\n";
   std::cout << "This is free software; you are free to change and redistribute it.\n";
   std::cout << "There is NO WARANTY, to the extent permitted by law.\n";

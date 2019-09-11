@@ -1,0 +1,18 @@
+from archlinux/base
+
+# update system
+run pacman -Syu --noconfirm
+
+# get the dependencies
+run pacman -Syu --noconfirm grep awk automake autoconf git
+copy autodep.sh .
+run ./autodep.sh arch
+
+# build the package
+run git clone @URL_GITREPO@
+workdir @PACKAGE@
+run autoreconf -i
+
+run ./configure
+run make
+run make check

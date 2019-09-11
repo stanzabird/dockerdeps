@@ -4,14 +4,16 @@ from archlinux/base
 run pacman -Syu --noconfirm
 
 # get the dependencies
-run pacman -Syu --noconfirm grep awk automake autoconf git
+run pacman -Syu --noconfirm grep awk wget
 copy autodep.sh .
 run ./autodep.sh arch
 
 # build the package
-run git clone https://github.com/stanzabird/dockerdeps.git
-workdir dockerdeps
-run autoreconf -i
+run wget @URL_TARBALL@
+run tar xf @PACKAGE@-@TARBALL_VERSION@.tar.gz
+workdir @PACKAGE@-@TARBALL_VERSION@
+
 run ./configure
 run make
 run make check
+

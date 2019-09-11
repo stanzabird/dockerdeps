@@ -25,3 +25,10 @@ tests/test-suite.log
 tests/usage.sh.log
 tests/usage.sh.trs
 
+deps/arch-git/Dockerfile
+deps/arch-tar/Dockerfile
+deps/debian-git/Dockerfile
+deps/debian-tar/Dockerfile
+deps/fedora-git/Dockerfile
+deps/fedora-mingw64/Dockerfile
+deps/fedora-tar/Dockerfile

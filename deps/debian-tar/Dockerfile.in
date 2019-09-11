@@ -10,9 +10,10 @@ copy autodep.sh .
 run ./autodep.sh debian
 
 # build the package
-run wget https://github.com/stanzabird/dockerdeps/releases/download/v0.1.0/dockerdeps-0.1.0.tar.gz
-run tar xf dockerdeps-0.1.0.tar.gz
-workdir dockerdeps-0.1.0
+run wget @URL_TARBALL@
+run tar xf @PACKAGE@-@TARBALL_VERSION@.tar.gz
+workdir @PACKAGE@-@TARBALL_VERSION@
+
 run ./configure
 run make
 run make check

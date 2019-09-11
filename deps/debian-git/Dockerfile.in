@@ -10,9 +10,10 @@ copy autodep.sh .
 run ./autodep.sh debian
 
 # build the package
-run git clone https://github.com/stanzabird/dockerdeps.git
-workdir dockerdeps
+run git clone @URL_GITREPO@
+workdir @PACKAGE@
 run autoreconf -i
+
 run ./configure
 run make
 run make check
