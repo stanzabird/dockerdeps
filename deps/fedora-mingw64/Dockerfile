@@ -6,7 +6,7 @@ run dnf -y update
 # get the dependencies
 run dnf -y install automake autoconf git
 copy autodep.sh .
-run ./autodep fedora-mingw64
+run ./autodep.sh fedora-mingw64
 
 # build the package
 run git clone https://github.com/stanzabird/dockerdeps.git
