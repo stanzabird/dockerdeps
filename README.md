@@ -50,11 +50,14 @@ And a reminder, to run a shell in one of the containers, just issue:
 ```bash
 docker run --rm -it dockerdeps/debian bash
 ```
+To get a file out of a running container, for example to get a win64 binary, you can go
+```bash
+docker cp happy_container:/dockerdeps/dockerdeps-win64.zip .
+```
 
 TODO
 ----
 I'm thinking of expanding the project with the following features:
 * 'distX-mingw64' docker build files to build for win64 using mingw64 cross-compilation. (Currently fedora-mingw64 is implemented.)
-* 'distX*/Dockerfile.in' to generate the names of the tarballs and the version numbers from autoconf.
 * 'distX-pkg' docker build files to build distribution files for each distro. (deb, rpm)
 

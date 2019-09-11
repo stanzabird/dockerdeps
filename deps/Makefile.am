@@ -1,5 +1,4 @@
-EXTRA_DIST = debian-git debian-tar arch-git arch-tar/Dockerfile \
-	fedora-tar fedora-git fedora-mingw64
+EXTRA_DIST = fedora-mingw64/zipwin.pl
 
 
 .PHONY : deps fedora-tar fedora-git fedora-mingw64 debian-tar debian-git arch-tar arch-git
