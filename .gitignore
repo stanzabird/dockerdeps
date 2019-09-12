@@ -32,3 +32,4 @@ deps/debian-tar/Dockerfile
 deps/fedora-git/Dockerfile
 deps/fedora-mingw64/Dockerfile
 deps/fedora-tar/Dockerfile
+deps/dockerdeps.nsi
