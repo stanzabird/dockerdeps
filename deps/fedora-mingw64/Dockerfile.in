@@ -18,7 +18,9 @@ run mingw64-configure --with-boost=/usr/x86_64-w64-mingw32/sys-root/mingw
 run make
 
 # make a zip file of the executable and all it's .dll dependencies
-run dnf -y install zip
+run make install-strip
+run cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/@PACKAGE@.exe .
 copy zipwin.pl .
-run ./zipwin.pl 64 src/@PACKAGE@.exe
-run mv src/@PACKAGE@-win64.zip .
+run dnf -y install zip
+run ./zipwin.pl 64 @PACKAGE@.exe
+run mv @PACKAGE@-win64.zip ./@PACKAGE@-@VERSION@-win64.zip
