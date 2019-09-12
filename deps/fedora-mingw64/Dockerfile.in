@@ -24,3 +24,10 @@ copy zipwin.pl .
 run dnf -y install zip
 run ./zipwin.pl 64 @PACKAGE@.exe
 run mv @PACKAGE@-win64.zip ./@PACKAGE@-@VERSION@-win64.zip
+
+# make installer
+run dnf -y install mingw32-nsis
+copy @PACKAGE@.nsi .
+copy stanzabird.ico .
+run ( mkdir INSTDIR; cd INSTDIR; unzip ../@PACKAGE@-@VERSION@-win64.zip ; cp ../stanzabird.ico .)
+run makensis @PACKAGE@.nsi
