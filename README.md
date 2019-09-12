@@ -33,7 +33,7 @@ The following derived distro's use:
 Currently unsupported distro's:
 * gentoo
 
-Each distro docker build file comes in two flavors: 'distX' and 'distX-build'. The 'distX' Dockerfile builds the package from a tarball, and the 'distX-build' Dockerfile builds the package from a cloned git repo.
+Each distro docker build file comes in two flavors: 'distX-tar' and 'distX-git'. The 'distX-tar' Dockerfile builds the package from a tarball, and the 'distX-git' Dockerfile builds the package from a cloned git repo.
 
 So you wanna build this thing?
 ------------------------------
@@ -46,13 +46,13 @@ So you wanna build this thing?
 
 To remove the built images, issue a 'make rmi' command in the 'deps' folder.
 
-And a reminder, to run a shell in one of the containers, just issue:
+And as a reminder, to run a shell in one of the containers, just issue:
 ```bash
-docker run --rm -it dockerdeps/debian bash
+docker run --rm -it dockerdeps/debian-tar bash
 ```
 To get a file out of a running container, for example to get a win64 binary, you can go
 ```bash
-docker cp happy_container:/dockerdeps/dockerdeps-win64.zip .
+docker cp happy_container:/dockerdeps/dockerdeps-0.1.0-win64.zip .
 ```
 
 TODO
