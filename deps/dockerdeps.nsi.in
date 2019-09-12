@@ -15,7 +15,7 @@
 
 Name "${PROGNAME}"
 OutFile "${PROGNAME}-${PROG_VERSION}-win64-setup.exe"
-InstallDir $PROGRAMFILES\${PROGNAME}
+InstallDir $PROGRAMFILES64\${PROGNAME}
 RequestExecutionLevel admin
 
 Page directory
@@ -26,6 +26,8 @@ function .onInit
 functionEnd
  
 Section "${PROGNAME}"
+	# disable registry redirection (enable access to the 64-bit portion of the registry)
+	SetRegView 64
 
 	# Copy files
 	SetOutPath $INSTDIR
