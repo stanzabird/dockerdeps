@@ -31,9 +31,9 @@ fedora-git :
 	sudo docker build -t @PACKAGE@/fedora-git fedora-git
 	rm fedora-git/autodep.sh
 fedora-mingw64 :
-	cp autodep.sh stanzabird.ico @PACKAGE@.nsi fedora-mingw64
+	cp autodep.sh stanzabird.ico @PACKAGE@.nsi zipwin.pl fedora-mingw64
 	sudo docker build -t @PACKAGE@/fedora-mingw64 fedora-mingw64
-	rm fedora-mingw64/autodep.sh fedora-mingw64/stanzabird.ico fedora-mingw64/@PACKAGE@.nsi
+	rm fedora-mingw64/autodep.sh fedora-mingw64/stanzabird.ico fedora-mingw64/@PACKAGE@.nsi fedora-mingw64/zipwin.pl
 
 deps : arch-tar arch-git debian-tar debian-git fedora-tar fedora-git fedora-mingw64
 
