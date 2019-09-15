@@ -24,7 +24,7 @@ test-driver
 tests/test-suite.log
 tests/usage.sh.log
 tests/usage.sh.trs
-
+config.h.in~
 deps/arch-git/Dockerfile
 deps/arch-tar/Dockerfile
 deps/debian-git/Dockerfile
