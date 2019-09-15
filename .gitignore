@@ -28,6 +28,7 @@ tests/usage.sh.trs
 deps/arch-git/Dockerfile
 deps/arch-tar/Dockerfile
 deps/debian-git/Dockerfile
+deps/debian-mingw64/Dockerfile
 deps/debian-tar/Dockerfile
 deps/fedora-git/Dockerfile
 deps/fedora-mingw64/Dockerfile

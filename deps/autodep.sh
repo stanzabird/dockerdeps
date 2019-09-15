@@ -6,6 +6,7 @@ if [ -z "$1" ]; then
     echo "  where DISTRO is one of the following:"
     echo "    arch, archlinux"
     echo "    debian"
+    echo "    debian-mingw64"
     echo "    fedora"
     echo "    fedora-mingw64"
     echo ""
@@ -18,6 +19,9 @@ case "$1" in
 	;;
     debian)
 	apt-get -y install make g++ libboost-all-dev
+	;;
+    debian-mingw64)
+	apt-get -y install make g++-mingw-w64-x86-64
 	;;
     fedora)
 	dnf -y install make g++ boost-devel
