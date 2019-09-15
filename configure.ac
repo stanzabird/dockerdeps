@@ -12,7 +12,7 @@ AC_SUBST([TARBALL_VERSION],[0.1.0])
 # we must use c++14 when cross-compiling to win64 on debian buster
 AC_PROG_CXX
 AC_LANG([C++])
-AX_CXX_COMPILE_STDCXX_14
+AX_CXX_COMPILE_STDCXX_17
 
 AX_BOOST_BASE([1.55],, [AC_MSG_ERROR([dockerdeps needs Boost, but it was not found])])
 AX_BOOST_SYSTEM

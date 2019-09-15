@@ -10,7 +10,9 @@
 
 
 #include <boost/version.hpp>
-//#include <boost/asio.hpp>
+#ifdef HAVE_BOOST_ASIO
+# include <boost/asio.hpp>
+#endif
 
 #include <getopt.h>
 
