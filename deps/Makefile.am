@@ -22,9 +22,9 @@ debian-git :
 	sudo docker build -t @PACKAGE@/debian-git debian-git
 	rm debian-git/autodep.sh
 debian-mingw64 :
-	cp autodep.sh debian-mingw64
+	cp autodep.sh stanzabird.ico @PACKAGE@.nsi zipwin.pl debian-mingw64
 	sudo docker build -t @PACKAGE@/debian-mingw64 debian-mingw64
-	rm debian-mingw64/autodep.sh
+	rm debian-mingw64/autodep.sh debian-mingw64/stanzabird.ico debian-mingw64/@PACKAGE@.nsi debian-mingw64/zipwin.pl
 
 fedora-tar :
 	cp autodep.sh fedora-tar

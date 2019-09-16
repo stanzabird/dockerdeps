@@ -5,23 +5,38 @@ run apt-get -y update
 run apt-get -y upgrade
 
 # get the dependencies
-run apt-get -y install automake autoconf git
-copy autodep.sh .
-run ./autodep.sh debian-mingw64
-
-# now, we need to get the qemu repo for the boost dependency.
+run apt-get -y install automake autoconf git wget gnupg
+# we need to get the qemu repo for the boost dependency.
 # see: https://qemu.weilnetz.de/debian/
-run apt-get -y install wget gnupg
 run wget -O - https://qemu.weilnetz.de/debian/gpg.key | apt-key add -
 run echo "deb https://qemu.weilnetz.de/debian/ testing contrib" > /etc/apt/sources.list.d/cygwin.list
 run apt-get -y update
-run apt-get -y install mingw64-x86-64-boost
+copy autodep.sh .
+run ./autodep.sh debian-mingw64
 
 # build the package
 run git clone @URL_GITREPO@
 workdir @PACKAGE@
 run autoreconf -i
 
+# BUG: on debian, the boost package I use has a compile error when including boost.asio, so for now we don't bother with boost.asio
 env LIBS=-lwsock32
-run ./configure --host=x86_64-w64-mingw32 --with-boost=/usr/x86_64-w64-mingw32/sys-root/mingw
+run ./configure --host=x86_64-w64-mingw32 --with-boost=/usr/x86_64-w64-mingw32/sys-root/mingw --prefix=/usr/x86_64-w64-mingw32/sys-root/mingw
 run make
+
+# make a zip file of the executable and all it's .dll dependencies
+run make install-strip
+run cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/@PACKAGE@.exe .
+# for some reason some essential .dll's like the std c++ library are located somewhere else
+run cp /usr/lib/gcc/x86_64-w64-mingw32/8.3-posix/*.dll /usr/x86_64-w64-mingw32/sys-root/mingw/bin
+copy zipwin.pl .
+run apt-get -y install zip
+run ./zipwin.pl 64 @PACKAGE@.exe
+run mv @PACKAGE@-win64.zip ./@PACKAGE@-@VERSION@-win64.zip
+
+# make installer
+run apt-get -y install nsis
+copy @PACKAGE@.nsi .
+copy stanzabird.ico .
+run ( mkdir INSTDIR; cd INSTDIR; unzip ../@PACKAGE@-@VERSION@-win64.zip ; cp ../stanzabird.ico .)
+run makensis @PACKAGE@.nsi

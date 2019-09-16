@@ -21,7 +21,7 @@ case "$1" in
 	apt-get -y install make g++ libboost-all-dev
 	;;
     debian-mingw64)
-	apt-get -y install make g++-mingw-w64-x86-64
+	apt-get -y install make g++-mingw-w64-x86-64 mingw64-x86-64-boost
 	;;
     fedora)
 	dnf -y install make g++ boost-devel
