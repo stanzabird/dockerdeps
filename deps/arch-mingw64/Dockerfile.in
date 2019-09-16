@@ -1,0 +1,19 @@
+from archlinux/base
+
+# update system
+run pacman -Syu --noconfirm
+
+# get the dependencies
+run pacman -Syu --noconfirm grep awk automake autoconf git
+copy autodep.sh .
+run ./autodep.sh arch-mingw64
+
+# build the package
+run git clone @URL_GITREPO@
+workdir @PACKAGE@
+run autoreconf -i
+
+env LIBS=-lwsock32
+run mingw-w64-configure --with-boost=/usr/x86_64-w64-mingw32/sys-root/mingw
+run make
+

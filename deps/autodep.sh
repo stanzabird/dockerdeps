@@ -17,6 +17,9 @@ case "$1" in
     arch | archlinux)
 	pacman -Syu --noconfirm make gcc boost
 	;;
+    arch-mingw64 | archlinux-mingw64)
+	pacman -Syu --noconfirm make mingw64-w64-gcc mingw64-w64-boost
+	;;
     debian)
 	apt-get -y install make g++ libboost-all-dev
 	;;
