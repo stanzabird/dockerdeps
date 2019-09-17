@@ -33,7 +33,7 @@ The following derived distro's use:
 Currently unsupported distro's:
 * gentoo
 
-Each distro docker build file comes in two flavors: 'distX-tar' and 'distX-git'. The 'distX-tar' Dockerfile builds the package from a tarball, and the 'distX-git' Dockerfile builds the package from a cloned git repo.
+Each distro docker build file comes in three flavors: 'distX-tar', 'distX-git' and 'distX-mingw64'. The 'distX-tar' Dockerfile builds the package from a tarball, the 'distX-git' Dockerfile builds the package from a cloned git repo. And finally, 'distX-mingw64' cross-compiles the package to a win64 installer.
 
 So you wanna build this thing?
 ------------------------------
@@ -58,6 +58,5 @@ docker cp happy_container:/dockerdeps/dockerdeps-0.1.0-win64.zip .
 TODO
 ----
 I'm thinking of expanding the project with the following features:
-* 'distX-mingw64' docker build files to build for win64 using mingw64 cross-compilation. (Currently fedora-mingw64 is implemented.)
 * 'distX-pkg' docker build files to build distribution files for each distro. (deb, rpm)
 
