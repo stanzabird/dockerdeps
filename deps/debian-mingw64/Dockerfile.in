@@ -31,7 +31,7 @@ run cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/@PACKAGE@.exe .
 run cp /usr/lib/gcc/x86_64-w64-mingw32/8.3-posix/*.dll /usr/x86_64-w64-mingw32/sys-root/mingw/bin
 copy zipwin.pl .
 run apt-get -y install zip
-run ./zipwin.pl 64 @PACKAGE@.exe
+run ./zipwin.pl 64 debian @PACKAGE@.exe
 run mv @PACKAGE@-win64.zip ./@PACKAGE@-@VERSION@-win64.zip
 
 # make installer

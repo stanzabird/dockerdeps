@@ -22,7 +22,7 @@ run make install-strip
 run cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/@PACKAGE@.exe .
 copy zipwin.pl .
 run dnf -y install zip
-run ./zipwin.pl 64 @PACKAGE@.exe
+run ./zipwin.pl 64 fedora @PACKAGE@.exe
 run mv @PACKAGE@-win64.zip ./@PACKAGE@-@VERSION@-win64.zip
 
 # make installer

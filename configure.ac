@@ -21,6 +21,6 @@ AX_BOOST_ASIO
 
 AC_CONFIG_FILES(Makefile src/Makefile tests/Makefile)
 # Dockerfiles
-AC_CONFIG_FILES(deps/Makefile deps/arch-tar/Dockerfile deps/arch-git/Dockerfile deps/debian-tar/Dockerfile deps/debian-git/Dockerfile deps/debian-mingw64/Dockerfile deps/fedora-tar/Dockerfile deps/fedora-git/Dockerfile deps/fedora-mingw64/Dockerfile deps/arch-mingw64/Dockerfile)
+AC_CONFIG_FILES(deps/Makefile deps/arch-tar/Dockerfile deps/arch-git/Dockerfile deps/arch-mingw64/Dockerfile deps/debian-tar/Dockerfile deps/debian-git/Dockerfile deps/debian-mingw64/Dockerfile deps/fedora-tar/Dockerfile deps/fedora-git/Dockerfile deps/fedora-mingw64/Dockerfile)
 AC_CONFIG_FILES(deps/dockerdeps.nsi)
 AC_OUTPUT

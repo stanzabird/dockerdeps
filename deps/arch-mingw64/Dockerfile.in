@@ -3,17 +3,127 @@ from archlinux/base
 # update system
 run pacman -Syu --noconfirm
 
-# get the dependencies
-run pacman -Syu --noconfirm grep awk automake autoconf git
-copy autodep.sh .
-run ./autodep.sh arch-mingw64
+# get the dependency tools
+run pacman -Syu --noconfirm git base-devel
+
+# for arch, we need to pull stuff from AUR
+run echo "root  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+run echo "nobody  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# mingw w64 gcc (binary) and its dependencies
+
+run git clone https://aur.archlinux.org/mingw-w64-binutils-bin.git
+run chown nobody:nobody mingw-w64-binutils-bin 
+run chmod g+ws mingw-w64-binutils-bin
+workdir mingw-w64-binutils-bin
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-crt-bin.git
+run chown nobody:nobody mingw-w64-crt-bin
+run chmod g+ws mingw-w64-crt-bin
+workdir mingw-w64-crt-bin
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-winpthreads-bin.git
+run chown nobody:nobody mingw-w64-winpthreads-bin
+run chmod g+ws mingw-w64-winpthreads-bin
+workdir mingw-w64-winpthreads-bin
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-headers-bin.git
+run chown nobody:nobody mingw-w64-headers-bin
+run chmod g+ws mingw-w64-headers-bin
+workdir mingw-w64-headers-bin
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-gcc-bin.git
+run chown nobody:nobody mingw-w64-gcc-bin
+run chmod g+ws mingw-w64-gcc-bin
+workdir mingw-w64-gcc-bin
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+# boost and boost dependencies
+
+run git clone https://aur.archlinux.org/mingw-w64-pkg-config.git
+run chown nobody:nobody mingw-w64-pkg-config
+run chmod g+ws mingw-w64-pkg-config
+workdir mingw-w64-pkg-config
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-configure.git
+run chown nobody:nobody mingw-w64-configure
+run chmod g+ws mingw-w64-configure
+workdir mingw-w64-configure
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-zlib.git
+run chown nobody:nobody mingw-w64-zlib
+run chmod g+ws mingw-w64-zlib
+workdir mingw-w64-zlib
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-bzip2.git
+run chown nobody:nobody mingw-w64-bzip2
+run chmod g+ws mingw-w64-bzip2
+workdir mingw-w64-bzip2
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/mingw-w64-boost.git
+run chown nobody:nobody mingw-w64-boost
+run chmod g+ws mingw-w64-boost
+workdir mingw-w64-boost
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+# NSIS tool and it's dependencies
+
+run pacman -Syu --noconfirm
+
+run git clone https://aur.archlinux.org/python2-scons.git
+run chown nobody:nobody python2-scons
+run chmod g+ws python2-scons
+workdir python2-scons
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+run git clone https://aur.archlinux.org/nsis.git
+run chown nobody:nobody nsis
+run chmod g+ws nsis
+workdir nsis
+run sudo -u nobody makepkg -si --noconfirm
+workdir /
+
+
 
 # build the package
+
 run git clone @URL_GITREPO@
 workdir @PACKAGE@
 run autoreconf -i
 
 env LIBS=-lwsock32
-run mingw-w64-configure --with-boost=/usr/x86_64-w64-mingw32/sys-root/mingw
+run ./configure --host=x86_64-w64-mingw32 --with-boost=/usr/x86_64-w64-mingw32 --prefix=/usr/x86_64-w64-mingw32
 run make
 
+# make zip file
+run make install-strip
+copy zipwin.pl .
+run pacman -Syu --noconfirm zip unzip
+run cp /usr/x86_64-w64-mingw32/bin/@PACKAGE@.exe .
+run ./zipwin.pl 64 arch @PACKAGE@.exe
+run mv @PACKAGE@-win64.zip ./@PACKAGE@-@VERSION@-win64.zip
+
+# make installer
+copy @PACKAGE@.nsi .
+copy stanzabird.ico .
+run ( mkdir INSTDIR; cd INSTDIR; unzip ../@PACKAGE@-@VERSION@-win64.zip ; cp ../stanzabird.ico .)
+run makensis @PACKAGE@.nsi

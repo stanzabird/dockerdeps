@@ -18,7 +18,8 @@ case "$1" in
 	pacman -Syu --noconfirm make gcc boost
 	;;
     arch-mingw64 | archlinux-mingw64)
-	pacman -Syu --noconfirm make mingw64-w64-gcc mingw64-w64-boost
+	echo "error: archlinux has mingw-w64 packages in AUR, and not available in pacman by default."
+	exit 1
 	;;
     debian)
 	apt-get -y install make g++ libboost-all-dev

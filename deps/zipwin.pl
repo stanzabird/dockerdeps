@@ -15,8 +15,9 @@ my $dlldir64="/usr/x86_64-w64-mingw32/sys-root/mingw/bin/";
 
 my $argc = $#ARGV + 1;
 
-if ($argc <= 1) {
-    print "Use: zipwin.pl [32|64] executable_name\n";
+if ($argc <= 2) {
+    print "Use: zipwin.pl [32|64] DISTRO executable_name\n";
+    print "     DISTRO = arch,debian,fedora\n";
     exit;
 }
 
@@ -26,7 +27,20 @@ if ($is32_64 != "32" and $is32_64 != "64") {
     exit
 }
 
-my $exename = $ARGV[1];
+my $distro = $ARGV[1];
+if ($distro != "arch" and $distro != "debian" and $distro != "fedora") {
+    print "zipwin.pl: distro argument must be arch,debian or fedora\n";
+    exit
+}
+
+if ($distro == "arch") {
+    $objdump32="i686-w64-mingw32-objdump";
+    $objdump64="x86_64-w64-mingw32-objdump";
+    $dlldir32="/usr/i686-w64-mingw32/bin/";
+    $dlldir64="/usr/x86_64-w64-mingw32/bin/";
+}
+
+my $exename = $ARGV[2];
 if ( not (-e $exename) ) {
     print "Program file '$exename' does not exist.\n";
     exit;

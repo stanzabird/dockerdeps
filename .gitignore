@@ -27,6 +27,7 @@ tests/usage.sh.trs
 config.h.in~
 deps/arch-git/Dockerfile
 deps/arch-tar/Dockerfile
+deps/arch-mingw64/Dockerfile
 deps/debian-git/Dockerfile
 deps/debian-mingw64/Dockerfile
 deps/debian-tar/Dockerfile
