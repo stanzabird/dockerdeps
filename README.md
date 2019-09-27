@@ -50,7 +50,7 @@ So you wanna build this thing?
 2) You need to know how to use docker and remove images that you no longer need.
 3) You need to install the depencencies needed to build the test program (they are found in the relevant Dockerfile).
 4) Configure the program.
-5) Finally, do 'make deps'. This will build *all* the docker images (takes almost 3 hours on my laptop).
+5) Finally, do 'make deps'. This will build *all* the docker images (takes almost 3 hours on my laptop). It takes 20GB diskspace, with 10GB for arch-mingw64. To build without arch-mingw64, run make deps-no-arch-mingw64.
 
 To remove the built images, issue a 'make rmi' command in the 'deps' folder.
 

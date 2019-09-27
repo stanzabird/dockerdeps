@@ -1,7 +1,7 @@
 EXTRA_DIST = zipwin.pl autodep.sh stanzabird.ico
 
 
-.PHONY : deps fedora-tar fedora-git fedora-mingw64 debian-tar debian-git debian-mingw64 arch-tar arch-git arch-mingw64
+.PHONY : deps deps-no-arch-mingw64 fedora-tar fedora-git fedora-mingw64 debian-tar debian-git debian-mingw64 arch-tar arch-git arch-mingw64
 
 
 arch-tar :
@@ -50,6 +50,7 @@ fedora-mingw64 :
 
 
 deps : arch-tar arch-git arch-mingw64 debian-tar debian-git debian-mingw64 fedora-tar fedora-git fedora-mingw64
+deps-no-arch-mingw64 : arch-tar arch-git debian-tar debian-git debian-mingw64 fedora-tar fedora-git fedora-mingw64
 
 rmi :
 	sudo docker rmi @PACKAGE@/arch-git @PACKAGE@/arch-tar @PACKAGE@/arch-mingw64 @PACKAGE@/fedora-git @PACKAGE@/fedora-tar @PACKAGE@/fedora-mingw64 @PACKAGE@/debian-git @PACKAGE@/debian-tar @PACKAGE@/debian-mingw64
