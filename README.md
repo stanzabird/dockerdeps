@@ -50,7 +50,7 @@ So you wanna build this thing?
 2) You need to know how to use docker and remove images that you no longer need.
 3) You need to install the depencencies needed to build the test program (they are found in the relevant Dockerfile).
 4) Configure the program.
-5) Finally, do 'make deps'. This will build *all* the docker images (takes almost 3 hours on my laptop). It takes 20GB diskspace, with 10GB for arch-mingw64. To build without arch-mingw64, run make deps-no-arch-mingw64 (40 minutes).
+5) Finally, do 'make deps'. This will build *all* the docker images (takes almost 3 hours on my laptop). It takes 20gb diskspace, with 10gb for arch-mingw64. To build without arch-mingw64, run make -C deps deps-no-arch-mingw64 (40 minutes).
 
 The problem on arch is that there are no packages for mingw on it, and AUR has some binary packages for the mingw compiler, but boost needs to be built from source, ugh.
 
