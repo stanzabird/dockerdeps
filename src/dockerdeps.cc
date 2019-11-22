@@ -1,4 +1,3 @@
-// hi there
 
 #include <config.h>
 
