@@ -1,3 +1,5 @@
+// hi there
+
 #include <config.h>
 
 #include "dockerdeps.h"
